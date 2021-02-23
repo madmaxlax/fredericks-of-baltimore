@@ -67,6 +67,7 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
+              "outputPath": "./dist",
               "budgets": [
                 {
                   "type": "initial",
