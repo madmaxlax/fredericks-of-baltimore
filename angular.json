@@ -134,5 +134,8 @@
       }
     }
   },
-  "defaultProject": "fredericks"
+  "defaultProject": "fredericks",
+  "cli": {
+    "analytics": "58342103-c2ee-4607-a9f4-438831080154"
+  }
 }
