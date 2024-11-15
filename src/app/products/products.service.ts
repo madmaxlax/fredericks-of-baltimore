@@ -11,9 +11,10 @@ export interface Product {
   name: string;
   shortLink: string;
   customFieldItems: any[];
-  attachments: {
+  attachments?: {
     url: string;
     name: string;
+    mimeType: string;
     previews: { height: number; width: number; url: string }[];
   }[];
   [name: string]: any;

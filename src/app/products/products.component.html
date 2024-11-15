@@ -1,2 +1,18 @@
-<p>products works!</p>
-<div *ngFor="let product of products">{{product.name}}</div>
+<!-- About-->
+<section class="about-section text-center" id="about">
+    <div class="container">
+        <p>products works!</p>
+        <div class="row">
+            <div *ngFor="let product of products" class="col-sm-12 col-md-6 col-lg-4 mx-auto">
+                <!-- Check if product, attachments, previews, and url exist -->
+                <img *ngIf="product?.attachments?.[0]?.previews?.[3]?.url" class="img-fluid"
+                    [src]="product.attachments[0].previews[3].url" alt="{{product.name}}" />
+
+                <h2 class="text-white mb-4">{{product.name}}</h2>
+                <p class="text-white-50">
+                    {{product.desc}}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
