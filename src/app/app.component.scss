@@ -1,3 +1,11 @@
-.navbar-brand {
-    // color: #461a72 !important;
+.header-logo {
+    display: none;
   }
+.navbar-shrink {
+  .header-logo {
+    display: block;
+
+    width: 100px;
+    margin-top: -10px;
+  }
+}

@@ -43,7 +43,6 @@ export class ProductsService {
     } else {
       const trelloData = this.http.get<TrelloData>(this.trelloURL).pipe(
         map((response) => {
-          console.log(response);
           return response?.cards.map((card) => ({
             ...card,
             parentList: response.lists.find((trelloList) => trelloList.id === card.idList),
