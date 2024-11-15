@@ -8,4 +8,9 @@
     width: 100px;
     margin-top: -10px;
   }
+  @media (max-width: 500px) {
+    .of-balt-header-text {
+      display: none !important;
+    }
+  }
 }
