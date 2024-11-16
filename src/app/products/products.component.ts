@@ -7,12 +7,14 @@ import { Product, ProductsService } from './products.service';
   styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent implements OnInit {
+  products: Product[] = [];
+  isFetching = false;
+  searchQuery = '';
+
   constructor(private productsService: ProductsService) {}
-  products?: Product[];
 
   ngOnInit(): void {
-    this.productsService.getProducts().subscribe((products) => {
-      this.products = products;
-    });
+    // this.productsService.isFetching$.subscribe(isFetching => this.isFetching = isFetching);
+    this.productsService.getProducts().subscribe((products) => (this.products = products));
   }
 }

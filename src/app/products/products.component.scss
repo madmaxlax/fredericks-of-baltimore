@@ -1,3 +1,24 @@
+.products-section {
+    background: linear-gradient(to bottom, #000000 0%, rgba(0, 0, 0, 0.9) 75%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+.sticky-search {
+    position: -webkit-sticky; /* For Safari */
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Ensure it stays above other content */
+    padding: 90px 0 10px 0; /* Optional: to add some padding */
+    background-color: black;
+}
+.input-group-append .input-group-text {
+    background-color: white;
+    border: none;
+    cursor: default;
+}
+.spinner {
+    padding-top: 150px;
+}
+
 .product-card {
     background-color: #343a40;  // Dark background for the card
     border: none;
