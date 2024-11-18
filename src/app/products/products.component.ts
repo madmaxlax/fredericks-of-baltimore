@@ -8,13 +8,16 @@ import { Product, ProductsService } from './products.service';
 })
 export class ProductsComponent implements OnInit {
   products: Product[] = [];
-  isFetching = false;
+  isFetching = true;
   searchQuery = '';
 
   constructor(private productsService: ProductsService) {}
 
   ngOnInit(): void {
     // this.productsService.isFetching$.subscribe(isFetching => this.isFetching = isFetching);
-    this.productsService.getProducts().subscribe((products) => (this.products = products));
+    this.productsService.getProducts().subscribe((products) => {
+      this.products = products;
+      this.isFetching = false;
+    });
   }
 }
