@@ -1,1 +1,54 @@
-<p>product-detail works!</p>
+<!-- Products-->
+<section class="products-section text-center" id="products">
+    <div class="container">
+        <div class="product-detail-page container py-5">
+            <!-- Back to Product List -->
+            <a [routerLink]="['/products']" class=" btn btn-outline-light mb-4">← Back to Artifacts</a>
+
+            <div *ngIf="!!selectedProduct ; else notFoundTemplate " class="row">
+                <!-- Image Section -->
+                <div class="col-lg-6">
+                    <img class="img-fluid rounded detail-image" [src]="selectedProduct.attachments[0].previews[3].url"
+                        alt="{{selectedProduct.name}}" />
+                </div>
+
+                <!-- Product Details Section -->
+                <div class="col-lg-6">
+                    <h1 class="text-white">{{selectedProduct.name}}</h1>
+                    <p class="text-white-50">{{selectedProduct.desc}}</p>
+
+                    <!-- Additional Details -->
+                    <ul class="list-unstyled mt-4">
+                        <li>
+                            <strong>Price:</strong>
+                            <span class="text-white-50">{{selectedProduct.price | currency}}</span>
+                        </li>
+                        <li>
+                            <strong>Retrieved From:</strong>
+                            <span class="text-white-50">{{selectedProduct.location}}</span>
+                        </li>
+                        <li>
+                            <strong>Date Added:</strong>
+                            <span class="text-white-50">{{selectedProduct.dateAdded | date:'longDate'}}</span>
+                        </li>
+                    </ul>
+
+                    <!-- Tags/Categories -->
+                    <div class="tags mt-4">
+                        <span *ngFor="let label of selectedProduct.labels" class="badge tag-badge">{{label.name}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<ng-template #notFoundTemplate>
+    <div class="container py-5 text-center text-white">
+        <h2>Artifact Not Found</h2>
+        <p>A product with that ID could not be found.</p>
+        <a routerLink="/products" class="btn btn-outline-light">← Back to Artifacts</a>
+    </div>
+</ng-template>

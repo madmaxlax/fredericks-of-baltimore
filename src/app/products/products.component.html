@@ -1,7 +1,7 @@
 <!-- Products-->
 <section class="products-section text-center" id="products">
     <div class="container">
-        <div *ngIf="!!products.length" class="row mb-4 sticky-search">
+        <div *ngIf="!!products?.length" class="row mb-4 sticky-search">
             <div class="col-12">
                 <div class="input-group">
                     <input #searchBox type="text" class="form-control" placeholder="Search artifacts"
@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="row">
-            <div *ngIf="!products.length" class="col-12 text-center spinner">
+            <div *ngIf="isFetching" class="col-12 text-center spinner">
                 <div class="spinner-border text-primary" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>
@@ -24,22 +24,27 @@
             </div>
 
             <div *ngFor="let product of products | filter:searchQuery" class="col-sm-12 col-md-6 col-lg-4 mb-4">
-                <div class="card product-card">
-                    <!-- Image Section -->
-                    <img *ngIf="product?.attachments?.[0]?.previews?.[3]?.url"
-                        [src]="product.attachments[0].previews[3].url" class="card-img-top img-fluid"
-                        alt="{{product.name}}" />
-                    <!-- Card Body -->
-                    <div class="card-body text-center">
-                        <h5 class="card-title text-white">{{product.name}}</h5>
-                        <p class="card-text text-white-50">{{product.desc}}</p>
+                <a [routerLink]="['/product-detail', product.id]">
+                    <div class="card product-card">
+                        <!-- Image Section -->
+                        <img *ngIf="product?.attachments?.[0]?.previews?.[3]?.url"
+                            [src]="product.attachments[0].previews[3].url" class="card-img-top img-fluid"
+                            alt="{{product.name}}" />
+                        <!-- Card Body -->
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-white">{{product.name}}</h5>
+                            <p class="card-text text-white-50">{{product.desc}}</p>
 
-                        <!-- Tags/Categories Section -->
-                        <div class="tags mt-3">
-                            <span *ngFor="let label of product.labels" class="badge tag-badge">{{label.name}}</span>
+                            <!-- Tags/Categories Section -->
+                            <div class="tags mt-3">
+                                <span *ngFor="let label of product.labels" class="badge tag-badge">{{label.name}}</span>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
+            </div>
+            <div *ngIf="!isFetching && !products?.length" class="load-error">
+                <p>Unable to load artifacts.</p>
             </div>
         </div>
     </div>

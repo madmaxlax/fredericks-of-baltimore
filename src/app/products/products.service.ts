@@ -43,14 +43,19 @@ export class ProductsService {
     } else {
       const trelloData = this.http.get<TrelloData>(this.trelloURL).pipe(
         map((response) => {
-          return response?.cards.map((card) => ({
-            ...card,
-            parentList: response.lists.find((trelloList) => trelloList.id === card.idList),
-          }));
+          try {
+            return response?.cards?.map((card) => ({
+              ...card,
+              parentList: response.lists.find((trelloList) => trelloList.id === card.idList),
+            }));
+          } catch (e) {
+            console.log('Error getting Trello data: ', e);
+            return [];
+          }
         }),
         catchError((e) => {
           console.log('Error getting Trello data: ', e);
-          return null as any;
+          return [];
         })
       );
       return trelloData as any;
