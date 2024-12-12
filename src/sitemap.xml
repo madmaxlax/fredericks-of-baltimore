@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Home Page -->
+  <url>
+    <loc>https://fredericks.studio/home</loc>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- About Page -->
+  <url>
+    <loc>https://fredericks.studio/about</loc>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Artifacts (Products) Page -->
+  <url>
+    <loc>https://fredericks.studio/products</loc>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Example Artifact Detail Page -->
+  <url>
+    <loc>https://fredericks.studio/product-detail/673d4c2efc75dc47c461ae8a</loc>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Add additional artifact detail pages dynamically -->
+</urlset>
