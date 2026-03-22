@@ -23,10 +23,9 @@
   <!-- Font Awesome icons (deferred, non-blocking) -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"></noscript>
-  <!-- Google fonts (deferred) -->
-  <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:wght@200;300;400;600;700;800;900&display=swap"
-    rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet"></noscript>
+  <!-- Google fonts (blocking — used in hero above fold; swap would cause CLS) -->
+  <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:wght@200;300;400;600;700;800;900&display=block"
+    rel="stylesheet">
 
 </head>
 <!-- Google tag (gtag.js) -->
