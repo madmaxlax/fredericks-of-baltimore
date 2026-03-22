@@ -51,6 +51,9 @@
             "assets": [
               "src/favicon.ico",
               "src/sitemap.xml",
+              "src/robots.txt",
+              "src/_redirects",
+              "src/_headers",
               "src/assets",
               "src/grayscale"
             ],
